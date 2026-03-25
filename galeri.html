@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri - Gunung Penanggungan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><i class="fas fa-mountain"></i> Penanggungan</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="perlengkapan.html">Perlengkapan</a></li>
+                <li><a href="jalur.html">Jalur</a></li>
+                <li><a href="galeri.html" class="active">Galeri</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-images"></i> Galeri Pendakian</h2>
+            <div class="gallery" id="galleryContainer">
+                <img src="view1.jpg" alt="Pemandangan Gunung Penanggungan" class="gallery-item">
+                <img src="view2.jpg" alt="Jalur Tamiajeng menembus kabut" class="gallery-item">
+                <img src="view3.jpg" alt="Puncak Pawitra dan hamparan savana" class="gallery-item">
+            </div>
+            <p class="mt-2"><i class="fas fa-lightbulb"></i> Klik gambar untuk melihat lebih besar.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p><i class="fas fa-mountain-sun"></i> Rencanakan dengan matang, jaga kebersihan, dan nikmati keindahan Gunung Penanggungan via Tamiajeng.</p>
+            <p>© 2025 Ekspedisi 4 Person</p>
+        </div>
+    </footer>
+    <div id="lightboxModal" class="lightbox-modal">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-img" id="lightboxImg" alt="preview besar">
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
