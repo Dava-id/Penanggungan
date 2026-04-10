@@ -209,7 +209,55 @@ body {
     border-radius: 24px;
 }
 
-/* Table Jalur */
+/* Tabel Sewa & Kalkulasi */
+.sewa-table, .cost-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.sewa-table th, .cost-table th {
+    background: var(--primary-dark);
+    color: white;
+    padding: 12px;
+    font-weight: 600;
+}
+.sewa-table td, .cost-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e2e8f0;
+}
+.highlight {
+    background: #e6f0fa;
+    font-weight: bold;
+}
+.cost-summary {
+    background: #f0f9ff;
+    border-radius: 24px;
+    padding: 20px;
+    margin: 20px 0;
+}
+.cost-per-person {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+}
+.person-cost {
+    background: white;
+    border-radius: 20px;
+    padding: 12px 20px;
+    flex: 1;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.person-cost strong {
+    font-size: 1.4rem;
+    color: var(--primary);
+}
+
+/* Table Jalur (untuk halaman jalur.html) */
 .route-table {
     overflow-x: auto;
     margin: 20px 0;
