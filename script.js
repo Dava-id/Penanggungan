@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const posDetailDiv = document.getElementById('posDetailInfo');
     
     if (slider && posNameSpan && posDetailDiv) {
-        // Data pos sesuai dengan tabel
         const routePoints = [
             { name: "Basecamp Tamiajeng (690 mdpl)", detail: "Start pendakian. Pastikan izin lengkap, bawa air minimal 2-3L. Fasilitas lengkap dan area parkir." },
             { name: "Pos 1 (sekitar 750 mdpl)", detail: "Jalan aspal/paving, melewati pemukiman & kebun. Medan ringan, waktu tempuh 15-20 menit." },
@@ -47,9 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         slider.addEventListener('input', (e) => updateSlider(e.target.value));
-        updateSlider(0); // set default
+        updateSlider(0);
     }
     
-    // Pesan di console (opsional)
     console.log("Website Gunung Penanggungan siap! Jangan lupa bawa pakaian kering cadangan.");
 });
