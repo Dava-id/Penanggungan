@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gunung Penanggungan | Jalur Tamiajeng</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,10 90,70 10,70' fill='%23D4AF37'/%3E%3Cpolygon points='50,20 80,65 20,65' fill='%230A2540'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,10 90,70 10,70' fill='%23D4AF37'/%3E%3Cpolygon points='50,20 80,65 20,65' fill='%230A2540'/%3E%3C/svg%3E">
-<link rel="alternate icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
     <nav class="navbar">
@@ -39,7 +37,6 @@
     </header>
 
     <main class="container">
-        <!-- Profil Gunung -->
         <section id="profil" class="section">
             <h2 class="section-title"><i class="fas fa-info-circle"></i> Profil Gunung Penanggungan</h2>
             <div class="info-grid">
@@ -50,7 +47,6 @@
             </div>
         </section>
 
-        <!-- Basecamp & Aturan -->
         <section class="section">
             <h2 class="section-title"><i class="fas fa-ticket-alt"></i> Basecamp Tamiajeng</h2>
             <div class="info-grid">
@@ -70,7 +66,6 @@
             </div>
         </section>
 
-        <!-- Barang Sewa -->
         <section class="section">
             <h2 class="section-title"><i class="fas fa-boxes"></i> Barang Sewa</h2>
             <p>Disewa dari Rengganis Adventure:</p>
@@ -85,7 +80,6 @@
             </ul>
         </section>
 
-        <!-- Pembagian Barang Pribadi -->
         <section id="perlengkapan" class="section">
             <h2 class="section-title"><i class="fas fa-backpack"></i> Pembagian Barang Pribadi (6 Orang, 2 Hari)</h2>
             <div class="gear-grid">
@@ -99,7 +93,6 @@
             <div class="meal-plan"><div><i class="fas fa-moon"></i> Malam: Sayur sop & frozen food</div><div><i class="fas fa-sun"></i> Pagi: Mie instan & telur</div></div>
         </section>
 
-        <!-- Sewa & Patungan + Pembayaran -->
         <section id="sewa" class="section">
             <h2 class="section-title"><i class="fas fa-clipboard-list"></i> Sewa & Kalkulasi</h2>
             <img src="pamflet_harga_sewa.jpg" alt="Pamflet Harga" style="max-width:100%; border-radius:20px; margin-bottom:20px;">
@@ -126,18 +119,15 @@
                     <div class="person-cost"><strong>Rully</strong><div class="details">10k + 3.333 + 5k + 15k = <strong>33.333</strong></div></div>
                 </div>
                 <p class="mt-3">Total: 2x33.333 + 4x38.333 = Rp220.000 (Sewa 130k + HTM 90k)</p>
-
-                <!-- Tombol Bayar Patungan -->
                 <div style="text-align: center; margin-top: 24px;">
                     <button id="showPaymentBtn" style="background: var(--gold); color: var(--deep-blue); border: none; padding: 16px 32px; border-radius: 60px; font-size: 1.2rem; font-weight: 700; cursor: pointer; box-shadow: var(--shadow-md); transition: var(--transition); display: inline-flex; align-items: center; gap: 12px;">
                         <i class="fas fa-wallet"></i> Bayar Patungan
                     </button>
-                    <p style="margin-top: 12px; font-size: 0.85rem; opacity: 0.7;">Klik untuk melihat metode pembayaran</p>
+                    <p style="margin-top: 12px; font-size: 0.85rem; opacity: 0.7;">Klik untuk melihat nomor rekening</p>
                 </div>
             </div>
         </section>
 
-        <!-- Galeri -->
         <section id="galeri" class="section">
             <h2 class="section-title"><i class="fas fa-images"></i> Galeri</h2>
             <div class="gallery">
@@ -155,21 +145,19 @@
         </div>
     </footer>
 
-    <!-- Lightbox Modal -->
     <div id="lightboxModal" class="lightbox-modal">
         <span class="close-lightbox">&times;</span>
         <img class="lightbox-img" id="lightboxImg" alt="preview">
     </div>
 
-       <!-- Modal Pembayaran -->
+    <!-- Modal Pembayaran (Hanya Nomor & Salin) -->
     <div id="paymentModal" class="payment-modal">
         <div class="payment-modal-content">
             <div class="payment-modal-header">
-                <h2><i class="fas fa-hand-holding-usd"></i> Pilih Metode Pembayaran</h2>
+                <h2><i class="fas fa-hand-holding-usd"></i> Nomor Pembayaran</h2>
                 <button class="close-payment-modal">&times;</button>
             </div>
             <div class="payment-methods">
-                <!-- BCA -->
                 <div class="payment-method">
                     <div class="payment-icon"><i class="fas fa-university"></i></div>
                     <div class="payment-info">
@@ -179,10 +167,8 @@
                     </div>
                     <div class="payment-actions">
                         <button onclick="copyToClipboard('6140805619')" class="btn-copy"><i class="far fa-copy"></i> Salin</button>
-                        <a href="https://m.bca.co.id" target="_blank" class="btn-open"><i class="fas fa-external-link-alt"></i> BCA Mobile</a>
                     </div>
                 </div>
-                <!-- Dana -->
                 <div class="payment-method">
                     <div class="payment-icon"><i class="fas fa-mobile-alt"></i></div>
                     <div class="payment-info">
@@ -192,10 +178,8 @@
                     </div>
                     <div class="payment-actions">
                         <button onclick="copyToClipboard('6285733525772')" class="btn-copy"><i class="far fa-copy"></i> Salin</button>
-                        <a href="intent://send?phone=6285733525772#Intent;scheme=dana;package=id.dana;end" class="btn-open"><i class="fas fa-external-link-alt"></i> Buka</a>
                     </div>
                 </div>
-                <!-- ShopeePay -->
                 <div class="payment-method">
                     <div class="payment-icon"><i class="fas fa-shopping-bag"></i></div>
                     <div class="payment-info">
@@ -205,10 +189,8 @@
                     </div>
                     <div class="payment-actions">
                         <button onclick="copyToClipboard('6285733525772')" class="btn-copy"><i class="far fa-copy"></i> Salin</button>
-                        <a href="shopeepay://send?phone=6285733525772" class="btn-open"><i class="fas fa-external-link-alt"></i> Buka</a>
                     </div>
                 </div>
-                <!-- GoPay -->
                 <div class="payment-method">
                     <div class="payment-icon"><i class="fas fa-google"></i></div>
                     <div class="payment-info">
@@ -218,11 +200,10 @@
                     </div>
                     <div class="payment-actions">
                         <button onclick="copyToClipboard('6285733525772')" class="btn-copy"><i class="far fa-copy"></i> Salin</button>
-                        <a href="gopay://send?phone=6285733525772" class="btn-open"><i class="fas fa-external-link-alt"></i> Buka</a>
                     </div>
                 </div>
             </div>
-            <p class="payment-note"><i class="fas fa-info-circle"></i> Setelah transfer, konfirmasi ke panitia.</p>
+            <p class="payment-note"><i class="fas fa-info-circle"></i> Transfer sesuai nominal patungan, lalu konfirmasi.</p>
         </div>
     </div>
 
