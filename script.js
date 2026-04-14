@@ -121,3 +121,28 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', updateActiveLink);
     updateActiveLink();
 });
+// Hamburger Menu Toggle
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const navLinks = document.getElementById('navLinks');
+if (hamburgerBtn && navLinks) {
+    hamburgerBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+        hamburgerBtn.classList.toggle('active');
+        document.body.style.overflow = navLinks.classList.contains('show') ? 'hidden' : '';
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('show');
+            hamburgerBtn.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+    // Tutup jika klik di luar
+    document.addEventListener('click', (e) => {
+        if (!hamburgerBtn.contains(e.target) && !navLinks.contains(e.target)) {
+            navLinks.classList.remove('show');
+            hamburgerBtn.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+}
