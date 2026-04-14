@@ -711,3 +711,261 @@ footer i {
 .mt-3 { margin-top: 1.5rem; }
 .mt-2 { margin-top: 1rem; }
 .text-gold { color: var(--gold); }
+/* ========== OPTIMASI MOBILE (Android & Layar Kecil) ========== */
+@media (max-width: 640px) {
+    body {
+        font-size: 15px;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
+    /* Navbar */
+    .navbar {
+        padding: 0.5rem 0;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0.5rem 16px;
+    }
+
+    .logo {
+        font-size: 1.6rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+        padding: 0.3rem 0;
+    }
+
+    /* Hero */
+    .hero {
+        padding: 120px 0 60px;
+        border-radius: 0 0 2rem 2rem;
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero h1 span {
+        font-size: 1.2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .badge {
+        font-size: 0.8rem;
+        padding: 8px 16px;
+    }
+
+    /* Section Cards */
+    .section {
+        padding: 24px 20px;
+        margin-bottom: 28px;
+        border-radius: 28px;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        padding-left: 16px;
+        margin-bottom: 24px;
+    }
+
+    .section-title i {
+        font-size: 1.5rem;
+        margin-right: 12px;
+    }
+
+    /* Info Grid */
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .info-grid div {
+        padding: 16px 18px;
+    }
+
+    /* Important Box */
+    .important-box {
+        padding: 20px 18px;
+    }
+
+    .important-box h3 {
+        font-size: 1.3rem;
+    }
+
+    .important-box li {
+        gap: 12px;
+        font-size: 0.95rem;
+    }
+
+    /* Person Cards (3 kolom sudah di-handle oleh media query sebelumnya) */
+    .person-card {
+        padding: 18px 16px 22px;
+    }
+
+    .person-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .person-card li {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+        gap: 10px;
+    }
+
+    .meal-plan {
+        flex-direction: column;
+        gap: 16px;
+        padding: 18px 20px;
+    }
+
+    /* Tabel Sewa (Scroll horizontal) */
+    .sewa-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        border-radius: 16px;
+    }
+
+    .sewa-table th,
+    .sewa-table td {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+    }
+
+    /* Cost Summary */
+    .cost-summary {
+        padding: 20px 16px;
+    }
+
+    .cost-per-person {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .person-cost {
+        padding: 14px 18px;
+    }
+
+    .person-cost strong {
+        font-size: 1.4rem;
+    }
+
+    /* Route Table */
+    .route-table {
+        margin: 20px 0;
+    }
+
+    table {
+        font-size: 0.85rem;
+    }
+
+    th, td {
+        padding: 12px 10px;
+    }
+
+    /* Interactive Slider */
+    .interactive-slider {
+        padding: 20px 16px;
+    }
+
+    .slider-label {
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+
+    .pos-info {
+        padding: 16px 18px;
+        font-size: 0.95rem;
+    }
+
+    .btn-pdf {
+        padding: 12px 24px;
+        font-size: 0.95rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Galeri */
+    .gallery {
+        gap: 16px;
+    }
+
+    .gallery-item {
+        width: 100%;
+        max-width: 280px;
+        height: 140px;
+    }
+
+    /* Lightbox */
+    .close-lightbox {
+        top: 20px;
+        right: 20px;
+        width: 48px;
+        height: 48px;
+        font-size: 36px;
+    }
+
+    .lightbox-img {
+        max-width: 95vw;
+        max-height: 80vh;
+    }
+
+    /* Footer */
+    footer {
+        padding: 28px 0;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+    }
+
+    /* Utility spacing */
+    .mt-3 {
+        margin-top: 1rem;
+    }
+}
+
+/* ========== PERBAIKAN OVERFLOW HORIZONTAL ========== */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Pastikan tabel tidak merusak layout */
+table {
+    width: 100%;
+    display: table;
+}
+
+/* Pre-wrap untuk teks panjang agar tidak overflow */
+p, li, .badge, .pos-info {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
