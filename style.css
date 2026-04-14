@@ -631,3 +631,100 @@ p, li, .badge, .pos-info, .person-cost {
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
+/* ========== PERBAIKAN KHUSUS BAGIAN KALKULASI DI MOBILE ========== */
+@media (max-width: 640px) {
+    /* Tabel Sewa: pastikan dapat discroll dengan indikasi */
+    .sewa-table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+        border-radius: 16px;
+        margin-bottom: 8px;
+    }
+
+    /* Tambahkan petunjuk halus bahwa tabel bisa digeser */
+    .sewa-table::after {
+        content: "← geser →";
+        display: block;
+        text-align: center;
+        font-size: 0.75rem;
+        color: var(--gray-600);
+        margin-top: 6px;
+        opacity: 0.8;
+    }
+
+    /* Biar tampilan tabel tetap rapi */
+    .sewa-table th,
+    .sewa-table td {
+        padding: 12px 14px;
+        font-size: 0.85rem;
+        white-space: nowrap;
+    }
+
+    /* Cost Summary: padding lebih kecil, teks menyesuaikan */
+    .cost-summary {
+        padding: 20px 14px;
+        margin: 20px 0;
+    }
+
+    .cost-summary h3 {
+        font-size: 1.3rem;
+        margin-bottom: 16px;
+    }
+
+    .cost-summary p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        word-break: break-word;
+    }
+
+    /* Kartu biaya per orang: teks tidak terpotong */
+    .cost-per-person {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .person-cost {
+        padding: 14px 16px;
+        text-align: left;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 20px;
+    }
+
+    .person-cost strong {
+        font-size: 1.3rem;
+    }
+
+    .person-cost hr {
+        display: none; /* Sembunyikan garis pemisah, gunakan flex saja */
+    }
+
+    /* Atur ulang tampilan detail biaya agar tidak numpuk */
+    .person-cost i {
+        margin-right: 8px;
+        width: 24px;
+        text-align: center;
+    }
+
+    /* Buat teks rincian biaya lebih kecil dan terbungkus */
+    .person-cost {
+        font-size: 0.85rem;
+    }
+
+    /* Jika ada div pembungkus tambahan di dalam person-cost (seperti di index.html) */
+    .person-cost div {
+        width: 100%;
+        margin-top: 6px;
+    }
+
+    /* Pastikan angka total terlihat jelas */
+    .person-cost strong:last-of-type {
+        font-size: 1.4rem;
+        color: var(--royal-blue);
+    }
+}
