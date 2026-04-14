@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // ==================== NAVBAR SCROLL ====================
+    // Navbar scroll
     const navbar = document.querySelector('.navbar');
     if (navbar) window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 20));
 
-    // ==================== HAMBURGER MENU ====================
+    // Hamburger Menu
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const navLinks = document.getElementById('navLinks');
     if (hamburgerBtn && navLinks) {
@@ -36,14 +36,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ==================== SCROLL REVEAL ====================
+    // Scroll Reveal
     const revealElements = document.querySelectorAll('.section, .hero, .gear-grid, .cost-summary');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     revealElements.forEach(el => { el.classList.add('reveal'); observer.observe(el); });
 
-    // ==================== LIGHTBOX ====================
+    // Lightbox
     const modal = document.getElementById('lightboxModal');
     const lightboxImg = document.getElementById('lightboxImg');
     const closeBtn = document.querySelector('.close-lightbox');
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.style.display === 'flex') closeModal(); });
     }
 
-    // ==================== ROUTE SLIDER ====================
+    // Route Slider
     const slider = document.getElementById('routeSlider');
     const posNameSpan = document.getElementById('posNameDisplay');
     const posDetailDiv = document.getElementById('posDetailInfo');
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
         updateSlider(0);
     }
 
-    // ==================== SMOOTH SCROLL ====================
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const target = document.querySelector(this.getAttribute('href'));
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ==================== ACTIVE NAV HIGHLIGHT ====================
+    // Active nav highlight
     const sections = document.querySelectorAll('section[id], header[id]');
     const navItems = document.querySelectorAll('.nav-links a');
     function updateActiveLink() {
@@ -113,60 +113,24 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', updateActiveLink);
     updateActiveLink();
 
-    // ==================== PAYMENT MODAL (PERBAIKAN) ====================
+    // Payment Modal
     const paymentModal = document.getElementById('paymentModal');
     const showPaymentBtn = document.getElementById('showPaymentBtn');
     const closePaymentBtn = document.querySelector('.close-payment-modal');
-
     if (paymentModal && showPaymentBtn && closePaymentBtn) {
         showPaymentBtn.addEventListener('click', (e) => {
             e.preventDefault();
             paymentModal.classList.add('show');
             document.body.style.overflow = 'hidden';
         });
-
         const closePayment = () => {
             paymentModal.classList.remove('show');
             document.body.style.overflow = '';
         };
-
         closePaymentBtn.addEventListener('click', closePayment);
-        paymentModal.addEventListener('click', (e) => {
-            if (e.target === paymentModal) closePayment();
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && paymentModal.classList.contains('show')) closePayment();
-        });
+        paymentModal.addEventListener('click', (e) => { if (e.target === paymentModal) closePayment(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && paymentModal.classList.contains('show')) closePayment(); });
     }
-
-    // ==================== DEEP LINK FALLBACK ====================
-    // Tangani tautan e-wallet agar lebih robust
-    document.querySelectorAll('.btn-open[href^="shopeepay://"], .btn-open[href^="gopay://"], .btn-open[href^="intent://"]').forEach(link => {
-        link.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            const phone = '6285733525772';
-            
-            // Untuk ShopeePay dan GoPay, coba buka aplikasi, jika gagal arahkan ke halaman web
-            if (href.startsWith('shopeepay://')) {
-                // Fallback: jika aplikasi tidak terpasang, arahkan ke Play Store atau halaman bantuan
-                setTimeout(() => {
-                    // Cek apakah halaman masih di sini (artinya deep link gagal)
-                    if (!document.hidden) {
-                        window.location.href = `https://shopee.co.id/universal-link/shopee-pay?phone=${phone}`;
-                    }
-                }, 500);
-            } else if (href.startsWith('gopay://')) {
-                setTimeout(() => {
-                    if (!document.hidden) {
-                        window.location.href = `https://www.gojek.com/gopay/transfer`;
-                    }
-                }, 500);
-            } else if (href.startsWith('intent://')) {
-                // Untuk Dana, intent biasanya langsung menangani
-                // Tidak perlu fallback tambahan
-            }
-        });
-    });
 });
 
 // Fungsi copy ke clipboard (global)
