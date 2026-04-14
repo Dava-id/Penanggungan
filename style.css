@@ -1,4 +1,4 @@
-/* style.css - Ultra Premium, Tanpa Scroll Horizontal, Mobile-First */
+/* style.css - Ultra Premium Corporate Theme with Hamburger Menu */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap');
 
 :root {
@@ -16,7 +16,6 @@
     --gray-200: #E2E8F0;
     --shadow-sm: 0 4px 6px -2px rgba(5,21,36,0.05);
     --shadow-md: 0 12px 24px -8px rgba(5,21,36,0.08);
-    --shadow-lg: 0 24px 36px -12px rgba(5,21,36,0.12);
     --transition: all 0.3s ease;
 }
 
@@ -47,7 +46,7 @@ body {
     padding: 0 16px;
 }
 
-/* ========== NAVBAR (HAMBURGER) ========== */
+/* ========== NAVBAR ========== */
 .navbar {
     position: fixed;
     top: 0;
@@ -153,7 +152,6 @@ body {
     color: var(--gold);
 }
 
-/* Desktop */
 @media (min-width: 768px) {
     .hamburger { display: none; }
     .nav-links {
@@ -214,7 +212,6 @@ body {
 .hero p {
     font-size: 1rem;
     margin: 16px 0;
-    word-break: break-word;
 }
 .badge {
     background: rgba(255,255,255,0.08);
@@ -226,7 +223,6 @@ body {
     border-radius: 60px;
     font-size: 0.85rem;
     border: 1px solid rgba(212,175,55,0.3);
-    word-break: break-word;
 }
 
 /* ========== SECTION ========== */
@@ -237,7 +233,6 @@ body {
     margin-bottom: 30px;
     box-shadow: var(--shadow-md);
     border: 1px solid var(--gray-200);
-    word-wrap: break-word;
 }
 
 .section-title {
@@ -248,7 +243,6 @@ body {
     margin-bottom: 28px;
     display: flex;
     align-items: center;
-    word-break: break-word;
 }
 .section-title i {
     color: var(--gold-soft);
@@ -269,13 +263,11 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
-    word-break: break-word;
 }
 .info-grid i {
     color: var(--gold);
     font-size: 1.3rem;
     width: 28px;
-    flex-shrink: 0;
 }
 
 /* Important Box */
@@ -286,16 +278,11 @@ body {
     border-radius: 24px;
     margin-top: 20px;
 }
-.important-box h3 {
-    font-size: 1.4rem;
-    margin-bottom: 16px;
-}
 .important-box li {
     margin-bottom: 14px;
     display: flex;
     gap: 12px;
     font-size: 0.95rem;
-    word-break: break-word;
 }
 .important-box li i {
     color: var(--gold);
@@ -323,9 +310,6 @@ body {
     display: inline-block;
     padding-bottom: 6px;
     margin-bottom: 24px;
-}
-.person-card ul {
-    list-style: none;
 }
 .person-card li {
     margin-bottom: 10px;
@@ -364,7 +348,6 @@ body {
     box-shadow: var(--shadow-sm);
     display: table;
     table-layout: fixed;
-    word-break: break-word;
 }
 
 .sewa-table th,
@@ -380,16 +363,12 @@ body {
     font-weight: 600;
 }
 
-.sewa-table tr:last-child td {
-    border-bottom: none;
-}
-
 .highlight {
     background: #FCF9F0;
     font-weight: 700;
 }
 
-/* Responsif: jika layar terlalu kecil, ubah tampilan tabel menjadi blok */
+/* Tampilan blok di mobile */
 @media (max-width: 480px) {
     .sewa-table,
     .sewa-table thead,
@@ -401,7 +380,7 @@ body {
         width: 100%;
     }
     .sewa-table thead {
-        display: none; /* Sembunyikan header asli */
+        display: none;
     }
     .sewa-table tr {
         margin-bottom: 16px;
@@ -426,9 +405,6 @@ body {
         color: var(--deep-blue);
         width: 50%;
     }
-    .highlight {
-        background: #FCF9F0;
-    }
 }
 
 /* Cost Summary */
@@ -440,16 +416,6 @@ body {
     margin: 24px 0;
     border: 1px solid rgba(212,175,55,0.2);
 }
-.cost-summary h3 {
-    font-size: 1.4rem;
-    margin-bottom: 16px;
-}
-.cost-summary p {
-    font-size: 0.9rem;
-    margin-bottom: 16px;
-    word-break: break-word;
-}
-
 .cost-per-person {
     display: flex;
     flex-direction: column;
@@ -470,11 +436,6 @@ body {
     font-size: 1.3rem;
     color: var(--royal-blue);
 }
-.person-cost i {
-    color: var(--gold);
-    width: 28px;
-    font-size: 1.2rem;
-}
 .person-cost .details {
     width: 100%;
     margin-top: 8px;
@@ -483,13 +444,9 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 4px 12px;
-    word-break: break-word;
-}
-.person-cost hr {
-    display: none;
 }
 
-/* ========== ROUTE TABLE (TANPA SCROLL) ========== */
+/* ========== ROUTE TABLE ========== */
 .route-table {
     margin: 20px 0;
     border-radius: 16px;
@@ -499,7 +456,6 @@ body {
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
-    word-break: break-word;
 }
 .route-table th,
 .route-table td {
@@ -511,7 +467,6 @@ body {
     background: var(--deep-blue);
     color: white;
 }
-/* Ubah ke blok pada layar kecil */
 @media (max-width: 600px) {
     .route-table table,
     .route-table thead,
@@ -650,10 +605,9 @@ footer {
 footer p {
     font-size: 0.9rem;
     padding: 0 16px;
-    word-break: break-word;
 }
 
-/* ========== RESPONSIVE (Tablet & Desktop) ========== */
+/* ========== RESPONSIVE ========== */
 @media (min-width: 640px) {
     .container { padding: 0 24px; }
     .hero h1 { font-size: 3.5rem; }
@@ -667,50 +621,14 @@ footer p {
     .meal-plan { flex-direction: row; }
     .cost-per-person { flex-direction: row; flex-wrap: wrap; }
     .person-cost { flex: 1 1 160px; flex-direction: column; align-items: flex-start; }
-    .person-cost .details { margin-top: 8px; }
     .btn-pdf { width: auto; }
     .gallery-item { width: 220px; }
-    /* Kembalikan tabel ke tampilan normal */
-    .sewa-table,
-    .sewa-table thead,
-    .sewa-table tbody,
-    .sewa-table tr,
-    .sewa-table th,
-    .sewa-table td {
-        display: table;
-        display: table-header-group;
-        display: table-row-group;
-        display: table-row;
-        display: table-cell;
-    }
-    .sewa-table {
-        display: table;
-        table-layout: auto;
-    }
-    .sewa-table thead {
-        display: table-header-group;
-    }
-    .sewa-table td::before {
-        content: none;
-    }
-    .route-table table,
-    .route-table thead,
-    .route-table tbody,
-    .route-table tr,
-    .route-table th,
-    .route-table td {
-        display: table;
-        display: table-header-group;
-        display: table-row-group;
-        display: table-row;
-        display: table-cell;
-    }
-    .route-table table {
-        table-layout: auto;
-    }
-    .route-table td::before {
-        content: none;
-    }
+    .sewa-table { display: table; table-layout: auto; }
+    .sewa-table thead { display: table-header-group; }
+    .sewa-table td::before { content: none; }
+    .route-table table { display: table; table-layout: auto; }
+    .route-table thead { display: table-header-group; }
+    .route-table td::before { content: none; }
 }
 
 @media (min-width: 1024px) {
@@ -731,12 +649,8 @@ footer p {
     transform: translateY(0);
 }
 
-/* Pastikan tidak ada overflow */
-img, svg, iframe {
-    max-width: 100%;
-    height: auto;
-}
-p, li, .badge, .pos-info, .person-cost, .important-box li {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
+/* Utility */
+.mt-3 { margin-top: 1.2rem; }
+.mt-2 { margin-top: 0.75rem; }
+img, svg { max-width: 100%; height: auto; }
+p, li, .badge, .pos-info { word-wrap: break-word; overflow-wrap: break-word; }
