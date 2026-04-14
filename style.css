@@ -1,5 +1,5 @@
-/* style.css - Ultra Premium Corporate Theme with Hamburger Menu */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap');
+/* style.css - Ultra Premium, Mobile-First, No Clipping */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap');
 
 :root {
     --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
@@ -7,7 +7,6 @@
     --deep-blue: #051524;
     --navy: #0A2540;
     --royal-blue: #1A3A5F;
-    --ocean: #2B5B8B;
     --gold: #D4AF37;
     --gold-light: #F3E5AB;
     --gold-soft: #C9A84C;
@@ -15,12 +14,10 @@
     --off-white: #F8FAFC;
     --gray-100: #F1F5F9;
     --gray-200: #E2E8F0;
-    --shadow-sm: 0 4px 6px -2px rgba(5, 21, 36, 0.05);
-    --shadow-md: 0 12px 24px -8px rgba(5, 21, 36, 0.08);
-    --shadow-lg: 0 24px 36px -12px rgba(5, 21, 36, 0.12);
-    --shadow-glow: 0 0 0 1px rgba(212, 175, 55, 0.15), 0 20px 40px -12px rgba(10, 37, 64, 0.2);
-    --transition-fast: all 0.2s ease;
-    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    --shadow-sm: 0 4px 6px -2px rgba(5,21,36,0.05);
+    --shadow-md: 0 12px 24px -8px rgba(5,21,36,0.08);
+    --shadow-lg: 0 24px 36px -12px rgba(5,21,36,0.12);
+    --transition: all 0.3s ease;
 }
 
 * {
@@ -30,8 +27,8 @@
 }
 
 html, body {
-    overflow-x: hidden;
     width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -47,37 +44,32 @@ body {
     width: 100%;
     max-width: 1320px;
     margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
+    padding: 0 16px;
 }
 
-/* ========== NAVBAR (GLASS EFFECT) ========== */
+/* ========== NAVBAR (GLASS, HAMBURGER) ========== */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 999;
+    z-index: 1000;
     background: transparent;
-    backdrop-filter: blur(0px);
-    transition: var(--transition-smooth);
-    border-bottom: 1px solid transparent;
+    transition: var(--transition);
     padding: 12px 0;
 }
 
 .navbar.scrolled {
     background: rgba(10, 37, 64, 0.85);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    border-bottom: 1px solid rgba(212,175,55,0.2);
     box-shadow: var(--shadow-md);
-    padding: 8px 0;
 }
 
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 .logo {
@@ -89,26 +81,18 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    z-index: 1001;
-}
-
-.navbar.scrolled .logo {
-    color: var(--gold-light);
 }
 
 .logo i {
     color: var(--gold);
-    font-size: 1.8rem;
 }
 
-/* Hamburger Button */
 .hamburger {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 32px;
-    height: 28px;
+    width: 30px;
+    height: 26px;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -121,38 +105,31 @@ body {
     height: 3px;
     background-color: var(--white);
     border-radius: 10px;
-    transition: var(--transition-smooth);
-}
-
-.navbar.scrolled .hamburger-line {
-    background-color: var(--gold-light);
+    transition: var(--transition);
 }
 
 .hamburger.active .hamburger-line:nth-child(1) {
-    transform: translateY(10px) rotate(45deg);
+    transform: translateY(9px) rotate(45deg);
 }
 .hamburger.active .hamburger-line:nth-child(2) {
     opacity: 0;
 }
 .hamburger.active .hamburger-line:nth-child(3) {
-    transform: translateY(-10px) rotate(-45deg);
+    transform: translateY(-9px) rotate(-45deg);
 }
 
-/* Navigation Links */
 .nav-links {
     display: none;
     flex-direction: column;
     width: 100%;
-    text-align: center;
     background: rgba(10, 37, 64, 0.95);
     backdrop-filter: blur(12px);
-    padding: 20px 0;
+    padding: 16px 0;
     border-radius: 0 0 24px 24px;
     position: absolute;
     top: 100%;
     left: 0;
-    right: 0;
-    z-index: 1000;
+    z-index: 999;
     border-bottom: 2px solid var(--gold);
     list-style: none;
 }
@@ -162,33 +139,23 @@ body {
 }
 
 .nav-links a {
-    color: white !important;
-    padding: 14px 20px;
+    color: white;
+    padding: 14px 24px;
     display: block;
     font-size: 1.1rem;
     text-decoration: none;
     font-weight: 500;
     border-bottom: 1px solid rgba(255,255,255,0.1);
-    transition: var(--transition-fast);
-}
-
-.nav-links li:last-child a {
-    border-bottom: none;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--gold) !important;
+    color: var(--gold);
 }
 
-/* Desktop Navigation */
+/* Desktop: tampilkan horizontal */
 @media (min-width: 768px) {
-    .hamburger {
-        display: none;
-    }
-    .nav-container {
-        flex-wrap: nowrap;
-    }
+    .hamburger { display: none; }
     .nav-links {
         display: flex !important;
         flex-direction: row;
@@ -198,28 +165,25 @@ body {
         padding: 0;
         width: auto;
         border-radius: 0;
-        border-bottom: none;
+        border: none;
         gap: 2.5rem;
     }
     .nav-links a {
-        color: rgba(255,255,255,0.9) !important;
+        color: rgba(255,255,255,0.9);
         padding: 6px 0;
         font-size: 1rem;
-        border-bottom: none;
-        position: relative;
+        border: none;
     }
     .navbar.scrolled .nav-links a {
-        color: rgba(255,255,255,0.85) !important;
+        color: rgba(255,255,255,0.85);
     }
     .nav-links a::after {
         content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 0;
+        display: block;
         width: 0;
         height: 2px;
         background: var(--gold);
-        transition: var(--transition-smooth);
+        transition: var(--transition);
     }
     .nav-links a:hover::after,
     .nav-links a.active::after {
@@ -231,30 +195,28 @@ body {
 .hero {
     background: radial-gradient(circle at 30% 10%, #143250 0%, var(--deep-blue) 100%);
     color: white;
-    padding: 140px 0 60px;
-    margin-bottom: 32px;
+    padding: 130px 0 50px;
+    margin-bottom: 30px;
 }
+
 .hero h1 {
     font-family: var(--font-display);
-    font-size: 2.8rem;
-    font-weight: 700;
+    font-size: 2.5rem;
     line-height: 1.2;
 }
 .hero h1 span {
     font-size: 1.2rem;
     font-weight: 400;
-    opacity: 0.9;
-    display: block;
-    margin-top: 8px;
     color: var(--gold-light);
+    display: block;
 }
 .hero p {
     font-size: 1rem;
-    margin: 20px 0;
+    margin: 16px 0;
 }
 .badge {
     background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(8px);
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -262,27 +224,24 @@ body {
     border-radius: 60px;
     font-size: 0.85rem;
     border: 1px solid rgba(212,175,55,0.3);
-    color: white;
-    white-space: normal;
 }
 
-/* ========== SECTION CARDS ========== */
+/* ========== SECTION ========== */
 .section {
-    background: var(--white);
+    background: white;
     border-radius: 24px;
-    padding: 28px 20px;
-    margin-bottom: 32px;
+    padding: 28px 18px;
+    margin-bottom: 30px;
     box-shadow: var(--shadow-md);
     border: 1px solid var(--gray-200);
 }
+
 .section-title {
     font-family: var(--font-display);
     font-size: 2rem;
-    font-weight: 600;
     border-left: 6px solid var(--gold);
-    padding-left: 20px;
+    padding-left: 18px;
     margin-bottom: 28px;
-    color: var(--deep-blue);
     display: flex;
     align-items: center;
 }
@@ -290,9 +249,6 @@ body {
     color: var(--gold-soft);
     margin-right: 12px;
     font-size: 1.6rem;
-    background: rgba(212,175,55,0.08);
-    padding: 6px;
-    border-radius: 14px;
 }
 
 /* Info Grid */
@@ -303,7 +259,7 @@ body {
 }
 .info-grid div {
     background: var(--off-white);
-    padding: 16px 18px;
+    padding: 16px;
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -312,34 +268,27 @@ body {
 .info-grid i {
     color: var(--gold);
     font-size: 1.3rem;
-    width: 32px;
-    flex-shrink: 0;
+    width: 28px;
 }
 
 /* Important Box */
 .important-box {
-    background: linear-gradient(145deg, #FCF9F0, #F8F4E5);
+    background: #FCF9F0;
     border-left: 6px solid var(--gold);
-    padding: 20px 18px;
+    padding: 20px 16px;
     border-radius: 24px;
     margin-top: 20px;
-}
-.important-box h3 {
-    font-size: 1.4rem;
-    margin-bottom: 16px;
 }
 .important-box li {
     margin-bottom: 14px;
     display: flex;
-    align-items: flex-start;
     gap: 12px;
     font-size: 0.95rem;
 }
 .important-box li i {
-    width: 24px;
     color: var(--gold);
+    width: 24px;
     flex-shrink: 0;
-    margin-top: 2px;
 }
 
 /* Person Cards */
@@ -349,7 +298,7 @@ body {
     gap: 24px;
 }
 .person-card {
-    background: var(--white);
+    background: white;
     border-radius: 28px;
     padding: 22px 18px;
     border: 1px solid var(--gray-200);
@@ -358,7 +307,6 @@ body {
 .person-card h3 {
     font-family: var(--font-display);
     font-size: 1.6rem;
-    font-weight: 600;
     border-bottom: 3px solid var(--gold);
     display: inline-block;
     padding-bottom: 6px;
@@ -380,7 +328,6 @@ body {
     width: 24px;
     color: var(--royal-blue);
     flex-shrink: 0;
-    margin-top: 2px;
 }
 .meal-plan {
     display: flex;
@@ -392,123 +339,143 @@ body {
     margin-top: 20px;
 }
 
-/* Tabel Sewa */
+/* ========== TABEL SEWA & KALKULASI (PERBAIKAN TOTAL) ========== */
 .sewa-table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 8px;
+    border-collapse: collapse;
     margin: 20px 0;
+    font-size: 0.85rem;
     display: block;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
 }
 .sewa-table th {
     background: var(--deep-blue);
     color: white;
-    padding: 14px 12px;
-    font-weight: 600;
-    font-size: 0.9rem;
+    padding: 12px 10px;
     text-align: left;
+    white-space: nowrap;
 }
 .sewa-table td {
-    background: white;
-    padding: 12px;
-    border-radius: 16px;
-    border: 1px solid var(--gray-200);
+    padding: 10px;
+    border-bottom: 1px solid var(--gray-200);
+    white-space: nowrap;
+}
+.sewa-table tr:last-child td {
+    border-bottom: none;
 }
 .highlight {
-    background: #FCF9F0 !important;
+    background: #FCF9F0;
     font-weight: 700;
 }
 
-/* Cost Summary */
+/* Cost Summary: Flex kolom, tanpa overflow */
 .cost-summary {
     background: rgba(255,255,255,0.8);
-    backdrop-filter: blur(16px);
-    border-radius: 28px;
-    padding: 24px 18px;
+    backdrop-filter: blur(8px);
+    border-radius: 24px;
+    padding: 20px 16px;
     margin: 24px 0;
+    border: 1px solid rgba(212,175,55,0.2);
 }
+.cost-summary h3 {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+}
+.cost-summary p {
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+    word-break: break-word;
+}
+
 .cost-per-person {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 12px;
 }
 .person-cost {
     background: white;
-    border-radius: 24px;
-    padding: 16px 18px;
-    text-align: center;
+    border-radius: 20px;
+    padding: 16px;
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--gray-200);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
 }
 .person-cost strong {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: var(--royal-blue);
 }
+.person-cost i {
+    color: var(--gold);
+    width: 28px;
+    font-size: 1.2rem;
+}
+.person-cost .details {
+    width: 100%;
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: var(--gray-600);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+}
+.person-cost hr {
+    display: none;
+}
 
-/* Route & Slider */
+/* ========== ROUTE TABLE & SLIDER ========== */
 .route-table {
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
     margin: 20px 0;
-    border-radius: 20px;
+    border-radius: 16px;
 }
 table {
     width: 100%;
     border-collapse: collapse;
-    background: white;
-    border-radius: 20px;
     min-width: 600px;
+}
+th, td {
+    padding: 12px;
+    text-align: left;
 }
 th {
     background: var(--deep-blue);
     color: white;
-    padding: 14px 12px;
-    font-weight: 600;
-    text-align: left;
-}
-td {
-    padding: 12px;
-    border-bottom: 1px solid var(--gray-200);
 }
 .interactive-slider {
-    background: linear-gradient(135deg, #F8FAFC, #FFFFFF);
-    border-radius: 28px;
+    background: white;
+    border-radius: 24px;
     padding: 24px 18px;
     margin: 24px 0;
+    box-shadow: var(--shadow-sm);
 }
 .slider-label {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
     margin-bottom: 16px;
     font-weight: 600;
 }
-input[type="range"] {
-    width: 100%;
-    margin: 16px 0;
-}
 .pos-info {
-    background: white;
-    border-radius: 24px;
-    padding: 18px 16px;
+    background: var(--off-white);
+    padding: 16px;
+    border-radius: 20px;
     border-left: 6px solid var(--gold);
-    font-size: 0.95rem;
 }
 .btn-pdf {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
     gap: 12px;
     background: var(--deep-blue);
     color: white;
     padding: 14px 24px;
     border-radius: 50px;
-    font-weight: 600;
     text-decoration: none;
+    font-weight: 600;
     width: 100%;
-    margin-top: 16px;
+    justify-content: center;
 }
 
 /* Gallery */
@@ -526,20 +493,18 @@ input[type="range"] {
     border-radius: 24px;
     cursor: pointer;
     box-shadow: var(--shadow-md);
-    border: 2px solid transparent;
-    transition: var(--transition-smooth);
+    transition: var(--transition);
 }
 .gallery-item:hover {
-    border-color: var(--gold);
     transform: scale(1.02);
+    border: 2px solid var(--gold);
 }
 
 /* Lightbox */
 .lightbox-modal {
     display: none;
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    inset: 0;
     background: rgba(5,21,36,0.95);
     backdrop-filter: blur(20px);
     justify-content: center;
@@ -550,7 +515,7 @@ input[type="range"] {
     max-width: 95vw;
     max-height: 85vh;
     border-radius: 30px;
-    border: 2px solid rgba(212,175,55,0.4);
+    border: 2px solid var(--gold);
 }
 .close-lightbox {
     position: absolute;
@@ -558,12 +523,11 @@ input[type="range"] {
     font-size: 40px;
     color: white;
     background: rgba(0,0,0,0.3);
-    border-radius: 50px;
     width: 48px; height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(8px);
+    border-radius: 50%;
     cursor: pointer;
 }
 
@@ -581,11 +545,7 @@ footer p {
     padding: 0 16px;
 }
 
-/* Utility */
-.mt-3 { margin-top: 1.2rem; }
-.mt-2 { margin-top: 0.75rem; }
-
-/* ========== RESPONSIVE TABLET & DESKTOP ========== */
+/* ========== RESPONSIVE (Tablet & Desktop) ========== */
 @media (min-width: 640px) {
     .container { padding: 0 24px; }
     .hero h1 { font-size: 3.5rem; }
@@ -596,11 +556,11 @@ footer p {
     .section-title { font-size: 2.4rem; }
     .info-grid { grid-template-columns: repeat(2,1fr); }
     .gear-grid { grid-template-columns: repeat(2,1fr); }
-    .meal-plan { flex-direction: row; gap: 30px; }
+    .meal-plan { flex-direction: row; }
     .cost-per-person { flex-direction: row; flex-wrap: wrap; }
-    .person-cost { flex: 1 1 140px; }
+    .person-cost { flex: 1 1 160px; flex-direction: column; align-items: flex-start; }
+    .person-cost .details { margin-top: 8px; }
     .btn-pdf { width: auto; }
-    .slider-label { flex-direction: row; justify-content: space-between; align-items: center; }
     .gallery-item { width: 220px; }
 }
 
@@ -615,116 +575,19 @@ footer p {
 .reveal {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transition: opacity 0.7s, transform 0.7s;
 }
 .reveal.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Overflow Fix */
-img, svg, video, canvas, iframe {
+/* Pastikan tidak ada overflow horizontal */
+img, svg, iframe {
     max-width: 100%;
     height: auto;
 }
-p, li, .badge, .pos-info, .person-cost {
+p, li, .badge, .pos-info {
     word-wrap: break-word;
     overflow-wrap: break-word;
-}
-/* ========== PERBAIKAN KHUSUS BAGIAN KALKULASI DI MOBILE ========== */
-@media (max-width: 640px) {
-    /* Tabel Sewa: pastikan dapat discroll dengan indikasi */
-    .sewa-table {
-        display: block;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        white-space: nowrap;
-        border-radius: 16px;
-        margin-bottom: 8px;
-    }
-
-    /* Tambahkan petunjuk halus bahwa tabel bisa digeser */
-    .sewa-table::after {
-        content: "← geser →";
-        display: block;
-        text-align: center;
-        font-size: 0.75rem;
-        color: var(--gray-600);
-        margin-top: 6px;
-        opacity: 0.8;
-    }
-
-    /* Biar tampilan tabel tetap rapi */
-    .sewa-table th,
-    .sewa-table td {
-        padding: 12px 14px;
-        font-size: 0.85rem;
-        white-space: nowrap;
-    }
-
-    /* Cost Summary: padding lebih kecil, teks menyesuaikan */
-    .cost-summary {
-        padding: 20px 14px;
-        margin: 20px 0;
-    }
-
-    .cost-summary h3 {
-        font-size: 1.3rem;
-        margin-bottom: 16px;
-    }
-
-    .cost-summary p {
-        font-size: 0.9rem;
-        line-height: 1.5;
-        word-break: break-word;
-    }
-
-    /* Kartu biaya per orang: teks tidak terpotong */
-    .cost-per-person {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .person-cost {
-        padding: 14px 16px;
-        text-align: left;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-        border-radius: 20px;
-    }
-
-    .person-cost strong {
-        font-size: 1.3rem;
-    }
-
-    .person-cost hr {
-        display: none; /* Sembunyikan garis pemisah, gunakan flex saja */
-    }
-
-    /* Atur ulang tampilan detail biaya agar tidak numpuk */
-    .person-cost i {
-        margin-right: 8px;
-        width: 24px;
-        text-align: center;
-    }
-
-    /* Buat teks rincian biaya lebih kecil dan terbungkus */
-    .person-cost {
-        font-size: 0.85rem;
-    }
-
-    /* Jika ada div pembungkus tambahan di dalam person-cost (seperti di index.html) */
-    .person-cost div {
-        width: 100%;
-        margin-top: 6px;
-    }
-
-    /* Pastikan angka total terlihat jelas */
-    .person-cost strong:last-of-type {
-        font-size: 1.4rem;
-        color: var(--royal-blue);
-    }
 }
