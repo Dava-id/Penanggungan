@@ -96,7 +96,7 @@
             <div class="meal-plan"><div><i class="fas fa-moon"></i> Malam: Sayur sop & frozen food</div><div><i class="fas fa-sun"></i> Pagi: Mie instan & telur</div></div>
         </section>
 
-        <!-- Sewa & Patungan + Rekening -->
+        <!-- Sewa & Patungan + Pembayaran -->
         <section id="sewa" class="section">
             <h2 class="section-title"><i class="fas fa-clipboard-list"></i> Sewa & Kalkulasi</h2>
             <img src="pamflet_harga_sewa.jpg" alt="Pamflet Harga" style="max-width:100%; border-radius:20px; margin-bottom:20px;">
@@ -124,38 +124,12 @@
                 </div>
                 <p class="mt-3">Total: 2x33.333 + 4x38.333 = Rp220.000 (Sewa 130k + HTM 90k)</p>
 
-                <!-- INFORMASI REKENING -->
-                <div style="margin-top: 28px; padding: 24px; background: linear-gradient(145deg, #F8F4E5, #FCF9F0); border-radius: 28px; border: 1px solid var(--gold);">
-                    <h3 style="display: flex; align-items: center; gap: 10px; color: var(--deep-blue); margin-bottom: 20px;">
-                        <i class="fas fa-university" style="color: var(--gold); font-size: 1.6rem;"></i> Transfer Pembayaran
-                    </h3>
-                    <div style="display: flex; flex-direction: column; gap: 20px;">
-                        <!-- BCA -->
-                        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding-bottom: 20px; border-bottom: 1px dashed var(--gold-soft);">
-                            <div style="flex: 2; min-width: 200px;">
-                                <p style="font-size: 1rem; opacity:0.7;"><i class="fas fa-building"></i> Bank BCA</p>
-                                <p style="font-size: 1.2rem; font-weight:700;">MOCH TRI DAVA PARELLA</p>
-                                <p style="font-size: 1.4rem; font-weight:800; letter-spacing:2px; color:var(--deep-blue);"><i class="fas fa-credit-card"></i> 6140805619</p>
-                                <button onclick="copyToClipboard('6140805619')" style="margin-top:8px; background:none; border:1px solid var(--gold); padding:6px 14px; border-radius:30px; font-size:0.8rem; cursor:pointer;"><i class="far fa-copy"></i> Salin No. Rekening</button>
-                            </div>
-                            <div style="flex:1; text-align:center;"><i class="fas fa-university" style="font-size:2.5rem; color:var(--deep-blue); opacity:0.5;"></i></div>
-                        </div>
-                        <!-- DANA -->
-                        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px;">
-                            <div style="flex: 2; min-width: 200px;">
-                                <p style="font-size: 1rem; opacity:0.7;"><i class="fas fa-mobile-alt"></i> Dana</p>
-                                <p style="font-size: 1.2rem; font-weight:700;">MOCH TRI DAVA PARELLA</p>
-                                <p style="font-size: 1.4rem; font-weight:800; letter-spacing:1px; color:var(--deep-blue);"><i class="fas fa-phone-alt"></i> 085733525772</p>
-                                <div style="display:flex; gap:10px; margin-top:8px; flex-wrap:wrap;">
-                                    <button onclick="copyToClipboard('085733525772')" style="background:none; border:1px solid var(--gold); padding:6px 14px; border-radius:30px; font-size:0.8rem; cursor:pointer;"><i class="far fa-copy"></i> Salin Nomor</button>
-                                    <a href="https://link.dana.id/qr/085733525772" target="_blank" style="background:#108EE9; color:white; padding:6px 16px; border-radius:30px; font-size:0.8rem; text-decoration:none;"><i class="fas fa-external-link-alt"></i> Buka Dana</a>
-                                    <a href="intent://send?phone=085733525772#Intent;scheme=dana;package=id.dana;end" style="background:#F2F2F2; color:#108EE9; padding:6px 16px; border-radius:30px; font-size:0.8rem; text-decoration:none;"><i class="fab fa-dana"></i> Buka App</a>
-                                </div>
-                            </div>
-                            <div style="flex:1; text-align:center;"><i class="fas fa-qrcode" style="font-size:2.5rem; color:#108EE9; opacity:0.6;"></i></div>
-                        </div>
-                    </div>
-                    <p style="margin-top:20px; font-size:0.85rem; opacity:0.8; text-align:center;"><i class="fas fa-check-circle" style="color:#2e7d32;"></i> Konfirmasi setelah transfer.</p>
+                <!-- Tombol Bayar Patungan -->
+                <div style="text-align: center; margin-top: 24px;">
+                    <button id="showPaymentBtn" style="background: var(--gold); color: var(--deep-blue); border: none; padding: 16px 32px; border-radius: 60px; font-size: 1.2rem; font-weight: 700; cursor: pointer; box-shadow: var(--shadow-md); transition: var(--transition); display: inline-flex; align-items: center; gap: 12px;">
+                        <i class="fas fa-wallet"></i> Bayar Patungan
+                    </button>
+                    <p style="margin-top: 12px; font-size: 0.85rem; opacity: 0.7;">Klik untuk melihat metode pembayaran</p>
                 </div>
             </div>
         </section>
@@ -178,7 +152,77 @@
         </div>
     </footer>
 
-    <div id="lightboxModal" class="lightbox-modal"><span class="close-lightbox">&times;</span><img class="lightbox-img" id="lightboxImg" alt="preview"></div>
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-modal">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-img" id="lightboxImg" alt="preview">
+    </div>
+
+    <!-- Modal Pembayaran -->
+    <div id="paymentModal" class="payment-modal">
+        <div class="payment-modal-content">
+            <div class="payment-modal-header">
+                <h2><i class="fas fa-hand-holding-usd"></i> Pilih Metode Pembayaran</h2>
+                <button class="close-payment-modal">&times;</button>
+            </div>
+            <div class="payment-methods">
+                <!-- BCA -->
+                <div class="payment-method">
+                    <div class="payment-icon"><i class="fas fa-university"></i></div>
+                    <div class="payment-info">
+                        <h3>Bank BCA</h3>
+                        <p>MOCH TRI DAVA PARELLA</p>
+                        <p class="payment-number">6140805619</p>
+                    </div>
+                    <div class="payment-actions">
+                        <button onclick="copyToClipboard('6140805619')" class="btn-copy"><i class="far fa-copy"></i> Salin</button>
+                        <a href="https://m.bca.co.id" target="_blank" class="btn-open"><i class="fas fa-external-link-alt"></i> BCA Mobile</a>
+                    </div>
+                </div>
+                <!-- Dana -->
+                <div class="payment-method">
+                    <div class="payment-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <div class="payment-info">
+                        <h3>Dana</h3>
+                        <p>MOCH TRI DAVA PARELLA</p>
+                        <p class="payment-number">6285733525772</p>
+                    </div>
+                    <div class="payment-actions">
+                        <button onclick="copyToClipboard('6285733525772')" class="btn-copy"><i class="far fa-copy"></i> Salin</button>
+                        <a href="intent://send?phone=6285733525772#Intent;scheme=dana;package=id.dana;end" class="btn-open"><i class="fas fa-external-link-alt"></i> Buka</a>
+                    </div>
+                </div>
+                <!-- ShopeePay -->
+                <div class="payment-method">
+                    <div class="payment-icon"><i class="fas fa-shopping-bag"></i></div>
+                    <div class="payment-info">
+                        <h3>ShopeePay</h3>
+                        <p>MOCH TRI DAVA PARELLA</p>
+                        <p class="payment-number">6285733525772</p>
+                    </div>
+                    <div class="payment-actions">
+                        <button onclick="copyToClipboard('6285733525772')" class="btn-copy"><i class="far fa-copy"></i> Salin</button>
+                        <a href="shopeepay://send?phone=6285733525772" class="btn-open"><i class="fas fa-external-link-alt"></i> Buka</a>
+                    </div>
+                </div>
+                <!-- GoPay -->
+                <div class="payment-method">
+                    <div class="payment-icon"><i class="fas fa-google"></i></div>
+                    <div class="payment-info">
+                        <h3>GoPay</h3>
+                        <p>MOCH TRI DAVA PARELLA</p>
+                        <p class="payment-number">6285733525772</p>
+                    </div>
+                    <div class="payment-actions">
+                        <button onclick="copyToClipboard('6285733525772')" class="btn-copy"><i class="far fa-copy"></i> Salin</button>
+                        <a href="gopay://send?phone=6285733525772" class="btn-open"><i class="fas fa-external-link-alt"></i> Buka</a>
+                    </div>
+                </div>
+            </div>
+            <p class="payment-note"><i class="fas fa-info-circle"></i> Setelah transfer, konfirmasi ke panitia.</p>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
