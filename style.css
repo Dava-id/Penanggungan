@@ -97,32 +97,28 @@ footer p { font-size: 0.9rem; padding: 0 16px; }
 /* Payment Modal */
 .payment-modal { display: none; position: fixed; inset: 0; background: rgba(5,21,36,0.8); backdrop-filter: blur(12px); justify-content: center; align-items: center; z-index: 2001; opacity: 0; transition: opacity 0.3s; padding: 16px; }
 .payment-modal.show { display: flex; opacity: 1; }
-.payment-modal-content { background: white; border-radius: 36px; max-width: 500px; width: 100%; max-height: 80vh; overflow-y: auto; box-shadow: 0 30px 50px rgba(0,0,0,0.3); border: 1px solid var(--gold); animation: slideUp 0.3s; }
-@keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.payment-modal-content { background: white; border-radius: 36px; max-width: 450px; width: 100%; max-height: 80vh; overflow-y: auto; box-shadow: 0 30px 50px rgba(0,0,0,0.3); border: 1px solid var(--gold); }
 .payment-modal-header { display: flex; justify-content: space-between; align-items: center; padding: 24px 24px 16px; border-bottom: 1px solid var(--gray-200); }
 .payment-modal-header h2 { font-family: var(--font-display); font-size: 1.6rem; color: var(--deep-blue); display: flex; align-items: center; gap: 10px; }
 .close-payment-modal { background: none; border: none; font-size: 32px; cursor: pointer; color: var(--gray-600); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
 .close-payment-modal:hover { background: var(--gray-100); }
-.payment-methods { padding: 16px 20px; display: flex; flex-direction: column; gap: 16px; }
+.payment-methods { padding: 16px 20px; display: flex; flex-direction: column; gap: 20px; }
 .payment-method { display: flex; align-items: center; gap: 16px; padding: 16px; background: var(--off-white); border-radius: 24px; border: 1px solid var(--gray-200); flex-wrap: wrap; }
 .payment-method:hover { border-color: var(--gold); }
 .payment-icon { width: 48px; height: 48px; background: white; border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--deep-blue); }
 .payment-info { flex: 1; min-width: 160px; }
-.payment-info h3 { font-size: 1.2rem; font-weight: 700; }
+.payment-info h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 4px; }
 .payment-info p { font-size: 0.9rem; opacity: 0.8; }
-.payment-number { font-family: monospace; font-size: 1.1rem; font-weight: 700; letter-spacing: 1px; color: var(--royal-blue); margin-top: 4px; }
+.payment-number { font-family: monospace; font-size: 1.2rem; font-weight: 700; letter-spacing: 1px; color: var(--royal-blue); margin-top: 6px; }
 .payment-actions { display: flex; gap: 8px; flex-wrap: wrap; }
-.btn-copy, .btn-open { padding: 8px 14px; border-radius: 30px; font-size: 0.8rem; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border: 1px solid transparent; }
-.btn-copy { background: white; color: var(--deep-blue); border-color: var(--gray-200); }
+.btn-copy { padding: 8px 16px; border-radius: 30px; font-size: 0.8rem; font-weight: 600; cursor: pointer; background: white; color: var(--deep-blue); border: 1px solid var(--gray-200); display: inline-flex; align-items: center; gap: 6px; }
 .btn-copy:hover { background: var(--gray-100); border-color: var(--gold); }
-.btn-open { background: var(--deep-blue); color: white; }
-.btn-open:hover { background: var(--gold); color: var(--deep-blue); }
 .payment-note { padding: 16px 24px 24px; text-align: center; font-size: 0.85rem; opacity: 0.8; border-top: 1px solid var(--gray-200); margin-top: 8px; }
 
 /* Responsive */
 @media (max-width: 480px) {
     .payment-method { flex-direction: column; align-items: flex-start; }
-    .payment-actions { width: 100%; justify-content: flex-end; }
+    .payment-actions { width: 100%; justify-content: flex-start; }
     .sewa-table, .sewa-table thead, .sewa-table tbody, .sewa-table tr, .sewa-table th, .sewa-table td { display: block; width: 100%; }
     .sewa-table thead { display: none; }
     .sewa-table tr { margin-bottom: 16px; border: 1px solid var(--gray-200); border-radius: 16px; background: white; padding: 12px; }
