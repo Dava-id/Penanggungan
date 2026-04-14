@@ -1,4 +1,4 @@
-/* style.css - Ultra Premium, Mobile-First, No Clipping */
+/* style.css - Ultra Premium, Tanpa Scroll Horizontal, Mobile-First */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap');
 
 :root {
@@ -47,7 +47,7 @@ body {
     padding: 0 16px;
 }
 
-/* ========== NAVBAR (GLASS, HAMBURGER) ========== */
+/* ========== NAVBAR (HAMBURGER) ========== */
 .navbar {
     position: fixed;
     top: 0;
@@ -153,7 +153,7 @@ body {
     color: var(--gold);
 }
 
-/* Desktop: tampilkan horizontal */
+/* Desktop */
 @media (min-width: 768px) {
     .hamburger { display: none; }
     .nav-links {
@@ -203,6 +203,7 @@ body {
     font-family: var(--font-display);
     font-size: 2.5rem;
     line-height: 1.2;
+    word-break: break-word;
 }
 .hero h1 span {
     font-size: 1.2rem;
@@ -213,6 +214,7 @@ body {
 .hero p {
     font-size: 1rem;
     margin: 16px 0;
+    word-break: break-word;
 }
 .badge {
     background: rgba(255,255,255,0.08);
@@ -224,6 +226,7 @@ body {
     border-radius: 60px;
     font-size: 0.85rem;
     border: 1px solid rgba(212,175,55,0.3);
+    word-break: break-word;
 }
 
 /* ========== SECTION ========== */
@@ -234,6 +237,7 @@ body {
     margin-bottom: 30px;
     box-shadow: var(--shadow-md);
     border: 1px solid var(--gray-200);
+    word-wrap: break-word;
 }
 
 .section-title {
@@ -244,6 +248,7 @@ body {
     margin-bottom: 28px;
     display: flex;
     align-items: center;
+    word-break: break-word;
 }
 .section-title i {
     color: var(--gold-soft);
@@ -264,11 +269,13 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
+    word-break: break-word;
 }
 .info-grid i {
     color: var(--gold);
     font-size: 1.3rem;
     width: 28px;
+    flex-shrink: 0;
 }
 
 /* Important Box */
@@ -279,11 +286,16 @@ body {
     border-radius: 24px;
     margin-top: 20px;
 }
+.important-box h3 {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+}
 .important-box li {
     margin-bottom: 14px;
     display: flex;
     gap: 12px;
     font-size: 0.95rem;
+    word-break: break-word;
 }
 .important-box li i {
     color: var(--gold);
@@ -312,6 +324,9 @@ body {
     padding-bottom: 6px;
     margin-bottom: 24px;
 }
+.person-card ul {
+    list-style: none;
+}
 .person-card li {
     margin-bottom: 10px;
     display: flex;
@@ -339,39 +354,84 @@ body {
     margin-top: 20px;
 }
 
-/* ========== TABEL SEWA & KALKULASI (PERBAIKAN TOTAL) ========== */
+/* ========== TABEL SEWA (TANPA SCROLL) ========== */
 .sewa-table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
     font-size: 0.85rem;
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
     border-radius: 16px;
     box-shadow: var(--shadow-sm);
+    display: table;
+    table-layout: fixed;
+    word-break: break-word;
 }
+
+.sewa-table th,
+.sewa-table td {
+    padding: 12px 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--gray-200);
+}
+
 .sewa-table th {
     background: var(--deep-blue);
     color: white;
-    padding: 12px 10px;
-    text-align: left;
-    white-space: nowrap;
+    font-weight: 600;
 }
-.sewa-table td {
-    padding: 10px;
-    border-bottom: 1px solid var(--gray-200);
-    white-space: nowrap;
-}
+
 .sewa-table tr:last-child td {
     border-bottom: none;
 }
+
 .highlight {
     background: #FCF9F0;
     font-weight: 700;
 }
 
-/* Cost Summary: Flex kolom, tanpa overflow */
+/* Responsif: jika layar terlalu kecil, ubah tampilan tabel menjadi blok */
+@media (max-width: 480px) {
+    .sewa-table,
+    .sewa-table thead,
+    .sewa-table tbody,
+    .sewa-table tr,
+    .sewa-table th,
+    .sewa-table td {
+        display: block;
+        width: 100%;
+    }
+    .sewa-table thead {
+        display: none; /* Sembunyikan header asli */
+    }
+    .sewa-table tr {
+        margin-bottom: 16px;
+        border: 1px solid var(--gray-200);
+        border-radius: 16px;
+        background: white;
+        padding: 12px;
+    }
+    .sewa-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px dashed var(--gray-200);
+    }
+    .sewa-table td:last-child {
+        border-bottom: none;
+    }
+    .sewa-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--deep-blue);
+        width: 50%;
+    }
+    .highlight {
+        background: #FCF9F0;
+    }
+}
+
+/* Cost Summary */
 .cost-summary {
     background: rgba(255,255,255,0.8);
     backdrop-filter: blur(8px);
@@ -423,30 +483,73 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 4px 12px;
+    word-break: break-word;
 }
 .person-cost hr {
     display: none;
 }
 
-/* ========== ROUTE TABLE & SLIDER ========== */
+/* ========== ROUTE TABLE (TANPA SCROLL) ========== */
 .route-table {
-    overflow-x: auto;
     margin: 20px 0;
     border-radius: 16px;
+    width: 100%;
 }
-table {
+.route-table table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 600px;
+    table-layout: fixed;
+    word-break: break-word;
 }
-th, td {
-    padding: 12px;
+.route-table th,
+.route-table td {
+    padding: 12px 8px;
     text-align: left;
+    border-bottom: 1px solid var(--gray-200);
 }
-th {
+.route-table th {
     background: var(--deep-blue);
     color: white;
 }
+/* Ubah ke blok pada layar kecil */
+@media (max-width: 600px) {
+    .route-table table,
+    .route-table thead,
+    .route-table tbody,
+    .route-table tr,
+    .route-table th,
+    .route-table td {
+        display: block;
+        width: 100%;
+    }
+    .route-table thead {
+        display: none;
+    }
+    .route-table tr {
+        margin-bottom: 16px;
+        border: 1px solid var(--gray-200);
+        border-radius: 16px;
+        background: white;
+        padding: 12px;
+    }
+    .route-table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px dashed var(--gray-200);
+    }
+    .route-table td:last-child {
+        border-bottom: none;
+    }
+    .route-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--deep-blue);
+        width: 45%;
+    }
+}
+
+/* Interactive Slider */
 .interactive-slider {
     background: white;
     border-radius: 24px;
@@ -457,12 +560,16 @@ th {
 .slider-label {
     margin-bottom: 16px;
     font-weight: 600;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 .pos-info {
     background: var(--off-white);
     padding: 16px;
     border-radius: 20px;
     border-left: 6px solid var(--gold);
+    word-break: break-word;
 }
 .btn-pdf {
     display: inline-flex;
@@ -543,6 +650,7 @@ footer {
 footer p {
     font-size: 0.9rem;
     padding: 0 16px;
+    word-break: break-word;
 }
 
 /* ========== RESPONSIVE (Tablet & Desktop) ========== */
@@ -562,6 +670,47 @@ footer p {
     .person-cost .details { margin-top: 8px; }
     .btn-pdf { width: auto; }
     .gallery-item { width: 220px; }
+    /* Kembalikan tabel ke tampilan normal */
+    .sewa-table,
+    .sewa-table thead,
+    .sewa-table tbody,
+    .sewa-table tr,
+    .sewa-table th,
+    .sewa-table td {
+        display: table;
+        display: table-header-group;
+        display: table-row-group;
+        display: table-row;
+        display: table-cell;
+    }
+    .sewa-table {
+        display: table;
+        table-layout: auto;
+    }
+    .sewa-table thead {
+        display: table-header-group;
+    }
+    .sewa-table td::before {
+        content: none;
+    }
+    .route-table table,
+    .route-table thead,
+    .route-table tbody,
+    .route-table tr,
+    .route-table th,
+    .route-table td {
+        display: table;
+        display: table-header-group;
+        display: table-row-group;
+        display: table-row;
+        display: table-cell;
+    }
+    .route-table table {
+        table-layout: auto;
+    }
+    .route-table td::before {
+        content: none;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -582,12 +731,12 @@ footer p {
     transform: translateY(0);
 }
 
-/* Pastikan tidak ada overflow horizontal */
+/* Pastikan tidak ada overflow */
 img, svg, iframe {
     max-width: 100%;
     height: auto;
 }
-p, li, .badge, .pos-info {
+p, li, .badge, .pos-info, .person-cost, .important-box li {
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
